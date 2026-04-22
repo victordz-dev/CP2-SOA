@@ -40,7 +40,7 @@ public class OrderController {
         return orderService.readAllOrders();
     }
 
-    @GetMapping("/{code}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getOrder(@PathVariable Long id){
         try {
             OrderModel savedOrder = orderService.readOrderById(id);
@@ -50,7 +50,7 @@ public class OrderController {
         }
     }
 
-    @PutMapping("/{code}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateOrder(@PathVariable Long id, @Valid @RequestBody OrderModel order){
         try {
             OrderModel savedOrder = orderService.updateOrder(id, order);
@@ -60,7 +60,7 @@ public class OrderController {
         }
     }
 
-    @DeleteMapping("/{code}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteOrder(@PathVariable Long id){
         try {
             orderService.deleteOrderById(id);
